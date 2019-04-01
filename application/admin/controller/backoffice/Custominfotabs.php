@@ -267,12 +267,18 @@ class Custominfotabs extends Backend
     {
         $this->model = model('CustomerResource');
         $id = $this->model->get(['id' => $ids]);
-        $saleList = $this->salesList();
-        $this->view->assign([
-            'firstSale' => $saleList['message8'] ? $saleList['message8'] : null,
-            'secondSale' => $saleList['message9'] ? $saleList['message9'] : null,
-            'thirdSale' => $saleList['message23'] ? $saleList['message23'] : null
-        ]);
+//        $saleList = $this->salesList();
+//        $this->view->assign([
+//            'firstSale' => $saleList['message8'] ? $saleList['message8'] : null,
+//            'secondSale' => $saleList['message9'] ? $saleList['message9'] : null,
+//            'thirdSale' => $saleList['message23'] ? $saleList['message23'] : null
+//        ]);
+        $sales = collection(Admin::field('id,nickname,rule_message')
+            ->where(['rule_message' => 'message8',
+                'status' => 'normal'])
+            ->select())->toArray();
+
+        $this->view->assign('sale_list',$sales);
 
 
         $this->assignconfig('id', $id->id);

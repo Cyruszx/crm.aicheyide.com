@@ -120,6 +120,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
 
                             {field: 'username', title: __('Username')},
                             {field: 'phone', title: __('Phone')},
+                            {field: 'invalidtime', title: __('失效时间')},
                             {
                                 field: 'genderdata',
                                 title: __('Genderdata'),
@@ -236,6 +237,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
 
                             {field: 'username', title: __('Username')},
                             {field: 'phone', title: __('Phone')},
+                            {field: 'invalidtime', title: __('失效时间')},
                             {
                                 field: 'genderdata',
                                 title: __('Genderdata'),
